@@ -199,36 +199,10 @@ section:nth-child(even) {
 }
 
 .hero-section {
-    /* Set the image as a background with a dark overlay so text remains readable */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Images/home_final.jpeg');
-    background-size: cover; /* Ensures the image covers the whole section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat;
-    
-    /* Adds spacing so the text doesn't touch the edges */
-    padding: 100px 20px;
-    
-    /* Centers the content nicely over the background */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     align-items: center;
-    text-align: center; /* Centers the text alignment */
-    
-    /* Forces the text to be white so it stands out against the background */
-    color: #ffffff; 
-}
-
-/* Ensure headings and paragraphs also adopt the white color */
-.hero-text h1, 
-.hero-text p {
-    color: #ffffff;
-}
-
-/* Optional: Center the badges container if they were previously left-aligned */
-.hero-text .badges {
-    justify-content: center;
-}
 }
 .hero-text h1 {
     font-size: 3.5rem;
@@ -257,6 +231,25 @@ section:nth-child(even) {
 }
 .badge-item i { color: var(--primary-red); font-size: 1.5rem; }
 .badge-item span { font-weight: normal; color: var(--gray-dark); display: block; font-size: 0.75rem;}
+
+.hero-image {
+    background-color: var(--gray-light);
+    border-radius: 20px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: #d1d5db;
+
+}
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents the image from stretching or squishing */
+    border-radius: 20px; /* Matches the container's rounded corners */
+}
+
 .services-category {
     margin-bottom: 40px;
 }
