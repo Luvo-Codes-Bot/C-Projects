@@ -199,10 +199,36 @@ section:nth-child(even) {
 }
 
 .hero-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    /* Set the image as a background with a dark overlay so text remains readable */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Images/home_final.jpeg');
+    background-size: cover; /* Ensures the image covers the whole section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    
+    /* Adds spacing so the text doesn't touch the edges */
+    padding: 100px 20px;
+    
+    /* Centers the content nicely over the background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center; /* Centers the text alignment */
+    
+    /* Forces the text to be white so it stands out against the background */
+    color: #ffffff; 
+}
+
+/* Ensure headings and paragraphs also adopt the white color */
+.hero-text h1, 
+.hero-text p {
+    color: #ffffff;
+}
+
+/* Optional: Center the badges container if they were previously left-aligned */
+.hero-text .badges {
+    justify-content: center;
+}
 }
 .hero-text h1 {
     font-size: 3.5rem;
