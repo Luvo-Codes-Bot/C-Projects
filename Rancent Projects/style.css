@@ -199,7 +199,7 @@ section:nth-child(even) {
 }
 
 .hero-section {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
