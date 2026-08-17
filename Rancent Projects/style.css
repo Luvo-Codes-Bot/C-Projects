@@ -60,7 +60,6 @@ header {
     color: var(--black);
 }
 
-/* Set your image logo constraints here */
 .logo-img {
     height: 40px;
     width: auto;
@@ -83,7 +82,8 @@ header {
     cursor: pointer;
 }
 
-.desktop-nav a.nav-link:hover, .desktop-nav a.nav-link.active {
+.desktop-nav a.nav-link:hover, 
+.desktop-nav a.nav-link.active {
     color: var(--primary-red);
 }
 
@@ -108,11 +108,14 @@ header {
     padding: 10px 24px;
     border-radius: 50px;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
     cursor: pointer;
     display: inline-block;
 }
-.btn-outline:hover { background-color: var(--gray-light); }
+.btn-outline:hover { 
+    background-color: var(--primary-red);
+    color: var(--white);
+}
 
 .mobile-menu-btn {
     display: none;
@@ -155,7 +158,6 @@ main {
     flex-grow: 1;
 }
 
-/* Section setup for smooth scrolling offset */
 section {
     scroll-margin-top: var(--nav-height);
     padding: 80px 0;
@@ -198,12 +200,14 @@ section:nth-child(even) {
     margin: 0 auto;
 }
 
+/* Hero Layout */
 .hero-section {
-    display: flex;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
 }
+
 .hero-text h1 {
     font-size: 3.5rem;
     line-height: 1.1;
@@ -213,57 +217,13 @@ section:nth-child(even) {
 .hero-text p {
     font-size: 1.25rem;
     color: var(--gray-dark);
-    margin-bottom: 30px;
-}
-.hero-buttons { 
-    display: flex; 
-    gap: 15px; 
-    margin-bottom: 40px; 
-    flex-wrap: wrap;
-}
-.hero-buttons a,
-.hero-buttons button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 24px;
-  font-size: 1rem; /* Overrides any massive inherited font-size */
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 8px;
-  white-space: nowrap; /* Keeps "Call Now" on a single line */
-  line-height: 1.2;
-}
-.hero-buttons .btn-primary {
-  background-color: var(--primary-red, #e11d48);
-  color: #ffffff;
-  border: none;
 }
 
-/* Specific styling for the secondary/outline button */
-.hero-buttons .btn-secondary {
-  background-color: transparent;
-  color: var(--primary-red, #e11d48);
-  border: 2px solid var(--primary-red, #e11d48);
+.hero-media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-.badges {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  border-top: 1px solid var(--gray-border, #e5e7eb);
-  padding-top: 20px;
-}
-.badge-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.875rem;
-  font-weight: bold;
-}
-.badge-item i { color: var(--primary-red); font-size: 1.5rem; }
-.badge-item span { font-weight: normal; color: var(--gray-dark); display: block; font-size: 0.75rem;}
 
 .hero-image {
     background-color: var(--gray-light);
@@ -272,17 +232,41 @@ section:nth-child(even) {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 6rem;
-    color: #d1d5db;
-
+    overflow: hidden;
 }
 .hero-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Prevents the image from stretching or squishing */
-    border-radius: 20px; /* Matches the container's rounded corners */
+    object-fit: cover;
+    border-radius: 20px;
 }
 
+.badges {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid var(--gray-border);
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+.badge-item i { color: var(--primary-red); font-size: 1.5rem; }
+.badge-item span { font-weight: normal; color: var(--gray-dark); display: block; font-size: 0.75rem; }
+
+.hero-buttons { 
+    display: flex; 
+    gap: 15px; 
+    flex-wrap: wrap;
+}
+
+/* Services Section */
 .services-category {
     margin-bottom: 40px;
 }
@@ -330,6 +314,7 @@ section:nth-child(even) {
 .service-card h4 { margin-bottom: 10px; font-size: 1.25rem; }
 .service-card p { color: var(--gray-dark); font-size: 0.95rem; }
 
+/* Projects Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -346,35 +331,21 @@ section:nth-child(even) {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
-    /* The container holding both images */
 .project-img-container {
     height: 220px;
     background-color: var(--gray-light);
-    display: flex; /* Aligns items side-by-side */
-    gap: 10px; /* Optional: adds space between the two images */
+    display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden; /* Keeps the images clean within the height boundary */
+    overflow: hidden;
 }
-
-/* Style the actual images inside the container */
 .project-img-container img {
-    width: 50%; /* Makes each image take up half the container width */
-    height: 100%; /* Stretches them to match the 220px container height */
-    object-fit: cover; /* Prevents stretching or squishing */
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
 }
-
-/* Optional overlay for image placeholders */
-.project-img-container::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.05));
-    pointer-events: none; /* Ensures users can still click through the overlay if needed */
-}
-
-.project-img i { color: var(--primary-red); opacity: 0.5; z-index: 1; }
 
 .project-info {
     padding: 25px;
@@ -397,6 +368,7 @@ section:nth-child(even) {
     font-size: 0.95rem;
 }
 
+/* About & Contact Grid */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -494,123 +466,118 @@ textarea.form-control { resize: vertical; height: 120px; }
 }
 .btn-submit:hover { background: var(--dark-red); }
 
+/* Policy / Legal Pages Content */
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.legal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.legal-content h3 {
+    font-size: 1.25rem;
+    margin: 25px 0 10px;
+    color: var(--primary-red);
+}
+.legal-content ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Footer Styling */
 footer {
-background-color: #1a1a1a; /* Professional deep dark background */
-color: #d1d5db;            /* Soft light grey text for readability */
-padding: 60px 20px 20px;
-font-family: sans-serif;
+    background-color: #1a1a1a;
+    color: #d1d5db;
+    padding: 60px 20px 20px;
 }
 
 .footer-container {
-max-width: 1200px;         /* Aligns perfectly with your nav and hero width */
-margin: 0 auto;
-display: grid;
-grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
 }
 
 .footer-column h4 {
-color: #ffffff;
-font-size: 1.1rem;
-margin-bottom: 20px;
-position: relative;
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
 }
 
-/* Visual anchor: A small styling line under column headers */
 .footer-column h4::after {
-content: '';
-display: block;
-width: 30px;
-height: 2px;
-background-color: #f39c12; /* Matches the lightning bolt amber/yellow */
-margin-top: 8px;
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #f39c12;
+    margin-top: 8px;
 }
 
 .footer-logo {
-font-size: 1.4rem;
-font-weight: bold;
-color: #ffffff;
-margin-bottom: 15px;
-display: flex;
-align-items: center;
-gap: 10px;
-}
-
-.footer-logo i {
-color: #f39c12; /* Golden/Amber bolt color */
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
 }
 
 .brand-tagline {
-font-size: 0.9rem;
-line-height: 1.6;
-color: #9ca3af;
-}
-
-.contact-list, .footer-links {
-list-style: none;
-padding: 0;
-margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #9ca3af;
 }
 
 .contact-list li, .footer-links li {
-margin-bottom: 12px;
-font-size: 0.95rem;
-display: flex;
-align-items: center;
-gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .footer-links a {
-color: #d1d5db;
-text-decoration: none;
-transition: color 0.3s ease;
+    color: #d1d5db;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-color: #f39c12; /* Turns yellow on hover */
+    color: #f39c12;
 }
 
 .socials {
-display: flex;
-gap: 15px;
+    display: flex;
+    gap: 15px;
 }
 
 .socials a {
-color: #ffffff;
-background-color: #2d2d2d;
-width: 40px;
-height: 40px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1.2rem;
-text-decoration: none;
-transition: all 0.3s ease;
+    color: #ffffff;
+    background-color: #2d2d2d;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .socials a:hover {
-background-color: #f39c12;
-transform: translateY(-3px); /* Subtle lift animation on hover */
+    background-color: #f39c12;
+    transform: translateY(-3px);
 }
 
-/* Bottom Bar Styling */
 .footer-bottom {
-max-width: 1200px;
-margin: 40px auto 0;
-padding-top: 20px;
-border-top: 1px solid #2d2d2d; /* Fine divider line */
-text-align: center;
-font-size: 0.85rem;
-color: #9ca3af;
-}
-
-/* Responsive Design for Mobile Screens */
-@media (max-width: 768px) {
-.footer-container {
-    grid-template-columns: 1fr; /* Stacks columns vertically on mobile */
-    gap: 30px;
-}
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #2d2d2d;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #9ca3af;
 }
 
 .message-box {
@@ -628,6 +595,7 @@ color: #9ca3af;
 .message-box h4 { color: #065f46; margin-bottom: 5px; }
 .message-box p { color: #047857; font-size: 0.875rem; }
 
+/* Responsive Adjustments */
 @media (max-width: 900px) {
     .desktop-nav { display: none; }
     .mobile-menu-btn { display: block; }
@@ -635,7 +603,10 @@ color: #9ca3af;
     .hero-section, .about-grid, .contact-grid { grid-template-columns: 1fr; }
     .hero-text h1 { font-size: 2.5rem; }
     .hero-buttons { flex-direction: column; }
-    .badges { flex-direction: column; gap: 10px; }
+    .badges { flex-direction: column; gap: 10px; align-items: flex-start; }
     .contact-info, .contact-form-wrapper { padding: 30px 20px; }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
- 
