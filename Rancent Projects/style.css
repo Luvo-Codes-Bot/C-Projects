@@ -215,19 +215,52 @@ section:nth-child(even) {
     color: var(--gray-dark);
     margin-bottom: 30px;
 }
-.hero-buttons { display: flex; gap: 15px; margin-bottom: 40px; }
+.hero-buttons { 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 40px; 
+    flex-wrap: wrap;
+}
+.hero-buttons a,
+.hero-buttons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: 1rem; /* Overrides any massive inherited font-size */
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  white-space: nowrap; /* Keeps "Call Now" on a single line */
+  line-height: 1.2;
+}
+.hero-buttons .btn-primary {
+  background-color: var(--primary-red, #e11d48);
+  color: #ffffff;
+  border: none;
+}
+
+/* Specific styling for the secondary/outline button */
+.hero-buttons .btn-secondary {
+  background-color: transparent;
+  color: var(--primary-red, #e11d48);
+  border: 2px solid var(--primary-red, #e11d48);
+}
 .badges {
-    display: flex;
-    gap: 20px;
-    border-top: 1px solid var(--gray-border);
-    padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--gray-border, #e5e7eb);
+  padding-top: 20px;
 }
 .badge-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.875rem;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  font-weight: bold;
 }
 .badge-item i { color: var(--primary-red); font-size: 1.5rem; }
 .badge-item span { font-weight: normal; color: var(--gray-dark); display: block; font-size: 0.75rem;}
